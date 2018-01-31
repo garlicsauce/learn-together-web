@@ -1,17 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import { Student } from '../_model/index';
-import { StudentService } from '../_service/index';
+import { LoginService } from '../_service/index';
+import { Router } from '@angular/router';
 
 @Component({
   moduleId: module.id,
   templateUrl: 'home.component.html'
 })
-export class HomeComponent {
-  currentStudent: Student;
-  students: Student[] = [];
+export class HomeComponent implements OnInit {
 
-  constructor(private studentService: StudentService) {
-    this.currentStudent = JSON.parse(localStorage.getItem('currentStudent'));
+  token: string;
+
+  constructor(private router: Router, private loginService: LoginService) {}
+
+  ngOnInit(): void {
+    this.token = localStorage.getItem('jwtToken');
+  }
+
+  logout(): void {
+    this.loginService.logout();
+    console.log('Logging out');
+    this.router.navigate(['/']);
   }
 }
