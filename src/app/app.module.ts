@@ -3,17 +3,15 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 import { AppComponent } from './app.component';
 import { AppInterceptor } from './app.interceptor';
 import { routing } from './app.routing';
 
-import { AuthGuard } from './_guard/index';
-import { LoginService, StudentService } from './_service/index';
-import { HomeComponent } from './home/index';
-import { LoginComponent } from './login/index';
-import { RegisterComponent } from './register/index';
+import { AuthGuard } from './_guard';
+import { LoginService, StudentService } from './_service';
+import { HomeComponent } from './home';
+import { LoginComponent } from './login';
+import { RegisterComponent } from './register';
 
 @NgModule({
   declarations: [
@@ -26,7 +24,6 @@ import { RegisterComponent } from './register/index';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    NgbModule.forRoot(),
     routing
   ],
   providers: [
