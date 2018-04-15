@@ -12,15 +12,13 @@ import { LoginService, StudentService } from './_service';
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
-import { AdvertisementComponent } from './advertisement/advertisement.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     HomeComponent,
-    LoginComponent,
-    AdvertisementComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
